@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia do Produtor - Ableton Live 12 & FL Studio 25</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0c0a18; /* Fallback */
+            background-image: linear-gradient(160deg, #1a1a3a 0%, #2c133a 60%, #4d1d3f 100%);
+            background-attachment: fixed; /* Mantém o gradiente fixo durante a rolagem */
+            color: #e0e0e0;
+        }
+        header, footer {
+            position: relative;
+            z-index: 1;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            z-index: -1;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            z-index: -1;
+        }
+        .neon-text {
+            text-shadow:
+                0 0 4px #a78bfa,
+                0 0 8px #a78bfa,
+                0 0 15px #d946ef;
+        }
+        .price-gradient {
+            background: linear-gradient(90deg, #a78bfa, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .price-shadow {
+             text-shadow: 0 0 15px rgba(217, 70, 239, 0.7), 0 0 25px rgba(217, 70, 239, 0.5);
+        }
+        
+        .neon-border {
+            border-color: #a78bfa;
+            box-shadow: 0 0 5px #a78bfa;
+        }
+        .card-glow {
+            transition: all 0.3s ease;
+            background-color: rgba(30, 27, 52, 0.7); /* Fundo dos cards com mais transparência */
+            backdrop-filter: blur(10px); /* Efeito de vidro fosco */
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .card-glow:hover {
+            box-shadow: 0 0 15px #a78bfa;
+            transform: scale(1.03);
+            border-color: #a78bfa;
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary:after {
+            content: '+';
+            float: right;
+            font-size: 1.8rem;
+            line-height: 1.4rem;
+            transition: transform 0.3s ease;
+        }
+        .faq-item[open] summary:after {
+            transform: rotate(45deg);
+        }
+        .guarantee-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(30, 27, 52, 0.8);
+            border: 3px solid #a78bfa;
+            box-shadow: 0 0 10px #a78bfa, inset 0 0 5px #a78bfa;
+            margin: 0 auto 1.5rem; /* Centraliza e adiciona margem inferior */
+        }
+        .guarantee-circle .number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #d946ef; /* Um rosa mais vibrante */
+            line-height: 1;
+            text-shadow: 0 0 10px #d946ef;
+        }
+        .guarantee-circle .text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #a78bfa;
+        }
+
+        .gradient-button {
+            background-image: linear-gradient(to right, #8b5cf6 0%, #d946ef 50%, #8b5cf6 100%);
+            background-size: 200% auto;
+            transition: all 0.4s ease;
+            animation: pulse-shadow 2.5s infinite;
+        }
+        .gradient-button:hover {
+            background-position: right center;
+            transform: translateY(-3px);
+        }
+
+        @keyframes pulse-shadow {
+            0% {
+                box-shadow: 0 0 5px #d946ef, 0 0 10px #d946ef;
+            }
+            50% {
+                box-shadow: 0 0 15px #f472b6, 0 0 30px #f472b6;
+            }
+            100% {
+                box-shadow: 0 0 5px #d946ef, 0 0 10px #d946ef;
+            }
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- HERO SECTION --><header class="min-h-screen flex flex-col items-center justify-center text-center p-6">
+        <div class="container mx-auto">
+            <img src="https://i.postimg.cc/Z9GHDGh8/AC-logo.png" alt="Academia do Produtor Logo" class="w-40 mx-auto mb-8"> <!-- Logo reduzida para w-40 --><h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider mb-4 neon-text">SEU ESTÚDIO COMPLETO.</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-gray-300">
+                Escolha entre <span class="font-bold text-white">Ableton Live 12 Suite</span> ou <span class="font-bold text-white">FL Studio 25</span>, com Plugins Grátis e Instalação Assistida. Tudo o que você precisa para produzir em nível profissional.
+            </p>
+
+            <!-- VÍDEO DE VENDAS (VSL) --><div class="w-full max-w-3xl mx-auto mb-8 aspect-video bg-black border-2 neon-border rounded-lg overflow-hidden">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <!-- BOTÃO DE AÇÃO PRINCIPAL --><a href="#oferta" class="gradient-button text-white font-bold text-lg md:text-xl uppercase py-4 px-10 rounded-lg shadow-lg">
+                SIM, QUERO MONTAR MEU ESTÚDIO!
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO DOR / PERSONA --><section class="py-20 px-6">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Sua produção não precisa ser complicada (ou cara).</h2>
+                <div class="w-24 h-1 bg-violet-500 mx-auto mb-12"></div>
+                 <p class="text-lg text-gray-300 max-w-4xl mx-auto">
+                        Você sabe o que quer: criar músicas com qualidade profissional. Mas se depara com preços absurdos, downloads arriscados e a frustração de não ter as ferramentas certas.
+                        <br><br>
+                        Na Academia do Produtor, nós removemos as barreiras. Oferecemos as DAWs mais poderosas do mercado de forma acessível, segura e com todo o suporte que você precisa para focar no que realmente importa: <span class="font-bold text-violet-400">a sua música.</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE ESCOLHA DAS DAWS --><section id="daws" class="py-20 px-6">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Escolha Sua Ferramenta Principal</h2>
+                <div class="w-24 h-1 bg-violet-500 mx-auto mb-12"></div>
+                <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    <!-- Card Ableton --><div class="card-glow p-8 rounded-lg border border-slate-700 text-center flex flex-col">
+                        <img src="https://placehold.co/400x200/1e1b34/a78bfa?text=Ableton+Live+12" alt="Ableton Live 12 Suite" class="rounded-md mb-6 mx-auto">
+                        <h3 class="text-3xl font-bold text-white mb-4">Ableton Live 12 <span class="text-violet-400">Suite</span></h3>
+                        <p class="text-gray-300 flex-grow">A escolha dos inovadores. Perfeito para criação de ideias, performance ao vivo e um fluxo de trabalho ultra rápido com o Session View.</p>
+                        <a href="#oferta" class="gradient-button mt-6 inline-block text-white font-bold uppercase py-3 px-8 rounded-lg">QUERO O ABLETON</a>
+                    </div>
+                    <!-- Card FL Studio --><div class="card-glow p-8 rounded-lg border border-slate-700 text-center flex flex-col">
+                        <img src="https://placehold.co/400x200/1e1b34/a78bfa?text=FL+Studio+25" alt="FL Studio 25" class="rounded-md mb-6 mx-auto">
+                        <h3 class="text-3xl font-bold text-white mb-4">FL Studio 25 <span class="text-violet-400">Producer</span></h3>
+                        <p class="text-gray-300 flex-grow">O estúdio completo em uma caixa. Famoso pelo seu Piano Roll poderoso, mixagem intuitiva e tudo que você precisa para ir do beat à masterização.</p>
+                        <a href="#oferta" class="gradient-button mt-6 inline-block text-white font-bold uppercase py-3 px-8 rounded-lg">QUERO O FL STUDIO</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO BÔNUS --><section class="py-20 px-6">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Sua Compra Vem Com Tudo Isso:</h2>
+                <div class="w-24 h-1 bg-violet-500 mx-auto mb-12"></div>
+                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Bônus 1 --><div class="card-glow p-8 rounded-lg border border-slate-700 border-opacity-50">
+                        <h3 class="text-2xl font-bold text-violet-400 mb-4">Plugins Grátis Essenciais</h3>
+                        <p class="text-gray-300">Receba um pacote com plugins de efeitos e instrumentos para expandir sua paleta de timbres e dar um toque profissional às suas mixagens.</p>
+                    </div>
+                    <!-- Bônus 2 --><div class="card-glow p-8 rounded-lg border border-slate-700 border-opacity-50">
+                        <h3 class="text-2xl font-bold text-violet-400 mb-4">Instalação Assistida VIP</h3>
+                        <p class="text-gray-300">Não se preocupe com a parte técnica. Nosso guia em vídeo e suporte 1:1 garantem que sua DAW estará rodando perfeitamente em minutos.</p>
+                    </div>
+                    <!-- Bônus 3 --><div class="card-glow p-8 rounded-lg border border-slate-700 border-opacity-50">
+                        <h3 class="text-2xl font-bold text-violet-400 mb-4">Suporte via WhatsApp</h3>
+                        <p class="text-gray-300">Qualquer dúvida ou problema? Você terá nosso contato direto para falar com um especialista e resolver tudo rapidamente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO OFERTA ESPECIAL --><section id="oferta" class="py-20 px-6">
+            <div class="container mx-auto max-w-4xl">
+                <div class="card-glow p-8 md:p-12 rounded-lg border-2 neon-border text-center">
+                    <h2 class="text-3xl md:text-4xl font-black uppercase mb-6 text-white">OFERTA DE LANÇAMENTO</h2>
+                    <p class="text-lg mb-8 text-gray-300">Escolha sua DAW, leve todos os bônus e comece a produzir hoje por um valor especial.</p>
+                    
+                    <div class="bg-black bg-opacity-30 p-6 rounded-lg text-left mb-8">
+                        <ul class="space-y-3 text-lg">
+                            <li class="flex items-center"><span class="text-green-400 mr-2">✓</span>Sua escolha: <span class="font-bold ml-1">Ableton Live 12 Suite</span> ou <span class="font-bold ml-1">FL Studio 25</span></li>
+                            <li class="flex items-center"><span class="text-green-400 mr-2">✓</span>Pacote de Plugins Essenciais Grátis</li>
+                            <li class="flex items-center"><span class="text-green-400 mr-2">✓</span>Instalação Assistida e Suporte VIP</li>
+                        </ul>
+                    </div>
+                    
+                    <p class="text-2xl text-white mb-2">POR APENAS</p>
+                    <p class="text-7xl md:text-8xl font-black mb-6 price-gradient price-shadow">R$ 59,90</p>
+                    
+                    <a href="#" class="gradient-button w-full max-w-lg mx-auto block text-white font-bold text-2xl uppercase py-5 px-10 rounded-lg shadow-lg">
+                        QUERO MEU ACESSO COM DESCONTO!
+                    </a>
+                    <p class="text-sm mt-4 text-gray-400">Compra segura | Acesso vitalício e imediato</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SEÇÃO PLUGINS --><section class="py-20 px-6 text-center">
+            <div class="container mx-auto max-w-4xl">
+                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Buscando mais Timbres?</h2>
+                 <div class="w-24 h-1 bg-violet-500 mx-auto mb-8"></div>
+                 <p class="text-lg text-gray-300 mb-8">Além das DAWs, temos uma curadoria com os melhores pacotes de plugins VST do mercado. De synths lendários a efeitos de mixagem e masterização, temos o que você precisa para elevar seu som.</p>
+                 <a href="#" class="inline-block border-2 border-violet-500 text-violet-400 font-bold text-lg uppercase py-3 px-8 rounded-lg hover:bg-violet-500 hover:text-white transition-colors">
+                    CONHEÇA NOSSOS PACOTES DE PLUGINS
+                </a>
+            </div>
+        </section>
+
+        <!-- SEÇÃO GARANTIA E FAQ --><section class="py-20 px-6">
+             <div class="container mx-auto max-w-5xl grid lg:grid-cols-2 gap-16 items-start">
+                <!-- Garantia --><div class="card-glow p-8 rounded-lg border border-slate-700 text-center lg:text-left">
+                    <div class="guarantee-circle mx-auto lg:mx-0 mb-6">
+                        <span class="number">7</span>
+                        <span class="text">DIAS</span>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-white mt-4 mb-2">Seu Risco é ZERO</h3>
+                    <p class="text-gray-300">Nosso compromisso é com o seu som. Você tem <span class="font-bold text-violet-400">7 dias de garantia incondicional</span>. Se tiver qualquer problema com o acesso ou instalação, devolvemos 100% do seu investimento. Sem perguntas, sem burocracia.</p>
+                </div>
+                <!-- FAQ --><div class="max-w-3xl">
+                    <h2 class="text-3xl font-bold text-center lg:text-left mb-8">Perguntas Frequentes</h2>
+                    <div class="space-y-4">
+                        <details class="faq-item bg-slate-800 p-5 rounded-lg cursor-pointer">
+                            <summary class="text-xl font-semibold text-white">O acesso é vitalício?</summary>
+                            <p class="text-gray-300 mt-3">Sim, o acesso ao software é vitalício para a versão adquirida. Você poderá usar sua DAW para sempre.</p>
+                        </details>
+                        <details class="faq-item bg-slate-800 p-5 rounded-lg cursor-pointer">
+                            <summary class="text-xl font-semibold text-white">Funciona em Windows e Mac?</summary>
+                            <p class="text-gray-300 mt-3">Sim! Após a compra, você receberá acesso aos arquivos de instalação para ambos os sistemas operacionais.</p>
+                        </details>
+                         <details class="faq-item bg-slate-800 p-5 rounded-lg cursor-pointer">
+                            <summary class="text-xl font-semibold text-white">Posso comprar os dois (Ableton e FL)?</summary>
+                            <p class="text-gray-300 mt-3">Sim! Basta adicionar o primeiro item ao carrinho e depois voltar para adicionar o segundo. Muitos produtores gostam de ter os dois para diferentes finalidades.</p>
+                        </details>
+                        <details class="faq-item bg-slate-800 p-5 rounded-lg cursor-pointer">
+                            <summary class="text-xl font-semibold text-white">Como recebo o produto?</summary>
+                            <p class="text-gray-300 mt-3">Imediatamente após a confirmação do pagamento, você receberá um e-mail com todos os links para download e as instruções do nosso Guia de Instalação VIP.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER --><footer class="pt-24 pb-10 px-6 text-center">
+        <div class="container mx-auto">
+            <img src="https://i.postimg.cc/Z9GHDGh8/AC-logo.png" alt="Academia do Produtor Logo" class="w-36 mx-auto mb-4"> <!-- Logo do rodapé reduzida para w-36 --><p class="text-gray-400 mb-4">Transformando a paixão pela música em carreira.</p>
+            <p class="text-gray-500 text-sm">Copyright © 2024 Academia do Produtor. Todos os direitos reservados.</p>
+            <p class="text-gray-600 text-xs mt-2"><a href="#" class="hover:text-violet-400">Termos de Uso</a> | <a href="#" class="hover:text-violet-400">Política de Privacidade</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
